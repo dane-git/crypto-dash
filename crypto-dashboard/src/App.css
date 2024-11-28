@@ -1,0 +1,52 @@
+/* Main container for all coins */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-template-rows: auto; /* Adjust rows automatically */
+  gap: 20px; /* Space between items */
+  padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+    grid-template-rows: auto;
+  }
+}
+
+.coin-section {
+  display: flex;
+  flex-direction: column; /* Stack components vertically within each coin-section */
+  align-items: stretch; /* Ensure full width for children */
+  margin-bottom: 20px; /* Add some spacing between coin sections */
+}
+
+.aggregated-trades {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  justify-content: space-between; /* Spread charts evenly */
+  gap: 5px;
+  width: 100%; /* Ensure it spans full width */
+  overflow-x: auto; /* Allow horizontal scrolling if necessary */
+}
+
+@media screen and (max-width: 1550px) {
+  .dashboard{
+    display: flex;
+    flex-direction: column; /* Stack coin-sections vertically */
+    align-items: center; /* Center the coin-sections */
+    gap: 20px; /* Add spacing between coin-sections */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .aggregated-trades {
+    flex-wrap: wrap; /* Allow wrapping to create 2x2 grid */
+    justify-content: center; /* Center-align the grid */
+    gap: 10px; /* Adjust spacing between charts */
+  }
+  .aggregated-trades > div {
+    flex: 0 1 calc(50% - 10px); /* Each chart takes 50% of the row minus spacing */
+    box-sizing: border-box; /* Ensure proper width calculation */
+  }
+}

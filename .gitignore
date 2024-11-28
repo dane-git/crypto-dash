@@ -1,0 +1,70 @@
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+.env/
+
+# Environment configuration
+private/private.env
+
+# Logs
+logs/
+*.log
+
+# Data
+data/
+*.sqlite3
+*.db
+
+# Docker
+*.sock
+docker-compose.override.yml
+
+# IDE Configurations
+.vscode/
+.idea/
+
+## react
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+crypto-dashboard/node_modules
+crypto-dashboard/.pnp
+crypto-dashboard.pnp.js
+
+# testing
+crypto-dashboard/coverage
+
+# production
+crypto-dashboard/build
+
+# misc
+crypto-dashboard/.DS_Store
+crypto-dashboard/.env.local
+crypto-dashboard/.env.development.local
+crypto-dashboard/.env.test.local
+crypto-dashboard/.env.production.local
+
+crypto-dashboard/npm-debug.log*
+crypto-dashboard/yarn-debug.log*
+crypto-dashboard/yarn-error.log*
+
+
+
+node_modules/
+
+arch/
+private/
+private.env
+*.log
+.ipynb_checkpoints/
+scratch/
+logs/
+data/
+NOTES.md
+
+
