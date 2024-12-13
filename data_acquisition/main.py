@@ -24,7 +24,10 @@ async def process_message(msg):
     try:
         if isinstance(msg, str):
             msg = json.loads(msg)
-
+            # print(msg)
+            if 'type' in  msg and msg['type'] == 'error':
+                print("ERROR")
+                print(msg)
         channel = msg.get("channel")
         if channel == "ticker":
             for event in msg.get("events", []):
@@ -51,8 +54,7 @@ async def process_message(msg):
 async def start_websocket():
     """Start the WebSocket client."""
     async def on_message(msg):
-        await process_message(msg)
-
+        await process_message(msg)    
     loop = asyncio.get_running_loop()
     client = WSClient(
         api_key=api_key,
@@ -74,6 +76,7 @@ async def run_all():
     await initialize_resources()
     print('Resources initialized. Starting WebSocket...')
     await start_websocket()
+    
 
 def main():
     """Entry point to start the event loop."""

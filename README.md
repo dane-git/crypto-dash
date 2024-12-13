@@ -107,17 +107,26 @@ docker logs async_postgres
 docker exec -it async_postgres bash
 env | grep POSTGRES # this should show you the values in your private.env.
 ```
+---
+## Run App
 
-#### Populate your data
-Websocket to Coin base api using `data_acquisition/main.py`.  If you have issues check your keys and the white listed IPs on the key ( including Ipv6 ). `curl ifconfig.me` to get external Ip addresses.  Careful ... this can use a lot of data over the network.  Change the `SUBS` in `data_acquisition/main.py` to your desired subscriptions. 
 
-1. in `/data_acquisitions` 
+### 1. Populate your data
+Websocket to Coin base api using `data_acquisition/main.py`.  
+If you have issues check your keys and the white listed IPs on the key ( including Ipv6 ). `curl -4 ifconfig.io` and `curl -6 ipconfig.io` to get external Ip addresses.   Change the `SUBS` in `data_acquisition/main.py` to your desired subscriptions. 
+> **NOTE:** ***The data acquisition can use a lot of data over the network. One option would be to remove the trades and just get the tickers.***
+
+1. start the db container:
+```bash
+docker start async_postgres
+```
+2. in `/data_acquisitions` 
 ```bash
 python main.py
 ```
-2. let this run for a few minutes.
+3. let this run for a few minutes.
 
-3. Check that the database is being populated
+4. Check that the database is being populated
 ```bash
 docker exec -it async_postgres bash
 psql -U crypto -d crypto
@@ -129,7 +138,7 @@ exit
 exit
 ```
 
-#### Frontend
+### 2. Frontend
 
 1.  Navigate to the `crypto-dashboard` directory:
 ```bash
@@ -146,7 +155,7 @@ npm install
 npm start
 ```
     
-#### Backend
+### 3. Backend
 
 1.  Navigate to the `data_serving` directory:
 ```bash    
