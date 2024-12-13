@@ -138,7 +138,24 @@ exit
 exit
 ```
 
-### 2. Frontend
+### 2. Backend
+
+1.  Navigate to the `data_serving` directory:
+```bash    
+cd data_serving
+```
+    
+2.  Start the API server:
+```bash    
+python api.py
+```
+3. Check with curl
+```bash
+curl -X GET "http://localhost:5000/api/last_trade?product_id=BTC-USD" # substitute the appropriate product_id
+
+```
+
+### 3. Frontend
 
 1.  Navigate to the `crypto-dashboard` directory:
 ```bash
@@ -155,22 +172,6 @@ npm install
 npm start
 ```
     
-### 3. Backend
-
-1.  Navigate to the `data_serving` directory:
-```bash    
-cd data_serving
-```
-    
-2.  Start the API server:
-```bash    
-python api.py
-```
-3. Check with curl
-```bash
-curl -X GET "http://localhost:5000/api/last_trade?product_id=BTC-USD" # substitute the appropriate product_id
-
-```
 
 
 
